@@ -1,0 +1,1 @@
+from dropconnect_tensorflow.dropconnect_tensorflow import DropConnectDense, DropConnectConv2D
