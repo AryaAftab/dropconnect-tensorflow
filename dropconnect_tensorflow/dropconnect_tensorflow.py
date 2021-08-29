@@ -28,7 +28,7 @@ class DropConnectDense(Dense):
             kernel = tf.multiply(self.kernel, mask)
             output = tf.matmul(inputs, kernel)
         else:
-            output = tf.matmul(inputs, self.kernel)
+            output = tf.matmul(inputs, self.kernel * (1 - self.prob))
           
         if self.use_bias:
             output += self.bias
@@ -67,7 +67,7 @@ class DropConnectConv2D(Conv2D):
                                   dilations=self.dilation_rate)
         else:
             output = tf.nn.conv2d(inputs,
-                                  self.kernel,
+                                  self.kernel * (1 - self.prob),
                                   strides=self.strides,
                                   padding=self.padding,
                                   dilations=self.dilation_rate)
