@@ -33,7 +33,7 @@ epochs=20
 
 # Compile the model
 model.compile(
-    optimizer=tf.keras.optimizers.Adam(0.0001),  # Utilize TFA optimizer
+    optimizer=tf.keras.optimizers.Adam(0.0001),  # Utilize optimizer
     loss=tf.keras.losses.SparseCategoricalCrossentropy(),
     metrics=['accuracy'])
 
@@ -76,7 +76,7 @@ epochs=20
 
 # Compile the model
 model.compile(
-    optimizer=tf.keras.optimizers.Adam(0.0001),  # Utilize TFA optimizer
+    optimizer=tf.keras.optimizers.Adam(0.0001),  # Utilize optimizer
     loss=tf.keras.losses.SparseCategoricalCrossentropy(),
     metrics=['accuracy'])
 
