@@ -2,7 +2,8 @@
 An implementation of <a href="http://proceedings.mlr.press/v28/wan13.html">Drop-Connect Layer</a> 
 in tensorflow 2.x. 
 Implementation of two layers of Dense and Conv2D has been done and other layers are added as the work progresses.
-##Demo
+
+## Demo
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AryaAftab/dropconnect-tensorflow/blob/master/demo/dropconnect_tensorflow_demo.ipynb)
 ## Install
 
