@@ -51,7 +51,7 @@ history = model.fit(
 ```python
 import tensorflow as tf
 from tensorflow.keras.layers import Dense, Conv2D, Input, ReLU, BatchNormalization, Flatten, MaxPool2D
-from dropconnect_tensorflow import DropConnectConv2D
+from dropconnect_tensorflow import DropConnectConv2D, DropConnectDense
 
 # Create Convolution Network
 X = tf.keras.layers.Input(shape=(28, 28, 1))
