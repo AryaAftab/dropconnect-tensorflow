@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
   name = 'dropconnect-tensorflow',
   packages = find_packages(),
-  version = '0.0.1',
+  version = '0.0.3',
   license='MIT',
   description = 'Drop Connect - Tensorflow',
   author = 'Arya Aftab',
