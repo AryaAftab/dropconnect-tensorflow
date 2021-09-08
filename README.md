@@ -1,7 +1,7 @@
 ## Drop Connect - Tensorflow
 An implementation of <a href="http://proceedings.mlr.press/v28/wan13.html">Drop-Connect Layer</a> 
 in tensorflow 2.x. 
-Implementation of two layers of Dense and Conv2D has been done and other layers are added as the work progresses.
+Implementation of layers of Dense, Conv2D, and Wrapper(for all TensorFlow Layers) has been done.
 
 ## Demo
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AryaAftab/dropconnect-tensorflow/blob/master/demo/dropconnect_tensorflow_demo.ipynb)
@@ -66,6 +66,41 @@ x = MaxPool2D((2,2))(x)
 
 x = Flatten()(x)
 x = DropConnectDense(units=64, prob=0.3, activation="relu", use_bias=True)(x)
+y = Dense(10, activation="softmax")(x)
+
+model = tf.keras.models.Model(X, y)
+
+
+# Hyperparameters
+batch_size=64
+epochs=20
+
+# Compile the model
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(0.0001),  # Utilize optimizer
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(),
+    metrics=['accuracy'])
+
+# Train the network
+history = model.fit(
+    x_train,
+    y_train,
+    batch_size=batch_size,
+    validation_split=0.1,
+    epochs=epochs)
+```
+
+### Wrapper(GRU, LSTM, Dense, Con2D, Conv1D, ...) Network
+```python
+import tensorflow as tf
+from tensorflow.keras.layers import Dense, Input, LSTM
+from dropconnect_tensorflow import DropConnect
+
+# Create LSTM Network
+X = tf.keras.layers.Input(shape=(28,28))
+
+x = DropConnect(LSTM(128, return_sequences=True), prob=0.5)(X)
+x = DropConnect(LSTM(128), prob=0.5)(X)
 y = Dense(10, activation="softmax")(x)
 
 model = tf.keras.models.Model(X, y)
