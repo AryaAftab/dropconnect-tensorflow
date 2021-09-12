@@ -15,7 +15,7 @@ def read_file(*parts):
 setup(
   name = 'dropconnect-tensorflow',
   packages = find_packages(),
-  version = '0.1.0',
+  version = '0.1.1',
   license='MIT',
   description = 'Drop Connect - Tensorflow',
   long_description=read_file('README.md'),
